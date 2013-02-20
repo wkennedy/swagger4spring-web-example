@@ -1,14 +1,8 @@
-package com.sparc.swagger4springweb.controllers.api;
+package com.knappsack.swagger4springweb.controllers.api;
 
-import com.sparc.swagger4springweb.models.Category;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiError;
-import com.wordnik.swagger.annotations.ApiOperation;
+import com.knappsack.swagger4springweb.models.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "/api/v1/categories")

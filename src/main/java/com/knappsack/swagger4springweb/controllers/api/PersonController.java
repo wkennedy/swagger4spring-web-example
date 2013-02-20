@@ -1,7 +1,7 @@
-package com.sparc.swagger4springweb.controllers.api;
+package com.knappsack.swagger4springweb.controllers.api;
 
-import com.sparc.swagger4springweb.models.Category;
-import com.sparc.swagger4springweb.models.Person;
+import com.knappsack.swagger4springweb.models.Category;
+import com.knappsack.swagger4springweb.models.Person;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiError;
 import com.wordnik.swagger.annotations.ApiOperation;

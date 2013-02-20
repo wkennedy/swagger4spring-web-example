@@ -1,4 +1,4 @@
-package com.sparc.swagger4springweb.controllers;
+package com.knappsack.swagger4springweb.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;

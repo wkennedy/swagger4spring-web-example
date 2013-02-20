@@ -24,11 +24,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.sparc.swagger4springweb.controllers" />
+	<context:component-scan base-package="com.knappsack.swagger4springweb.controllers" />
 
-    <beans:bean id="documentationController" class="com.sparc.swagger4springweb.controller.ApiDocumentationController"
-                p:baseControllerPackage="com.sparc.swagger4springweb.controllers.api"
-                p:baseModelPackage="com.sparc.swagger4springweb.models"
+    <beans:bean id="documentationController" class="com.knappsack.swagger4springweb.controller.ApiDocumentationController"
+                p:baseControllerPackage="com.knappsack.swagger4springweb.controllers.api"
+                p:baseModelPackage="com.knappsack.swagger4springweb.models"
                 p:apiVersion="v1" />
 
 </beans:beans>

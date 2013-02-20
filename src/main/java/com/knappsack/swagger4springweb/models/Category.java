@@ -1,4 +1,4 @@
-package com.sparc.swagger4springweb.models;
+package com.knappsack.swagger4springweb.models;
 
 public class Category {
     private long id;
