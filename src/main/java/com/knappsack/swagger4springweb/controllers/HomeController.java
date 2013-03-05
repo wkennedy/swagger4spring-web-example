@@ -35,10 +35,5 @@ public class HomeController {
 		
 		return "home";
 	}
-
-    @RequestMapping(value = "/api/docs", method = RequestMethod.GET)
-    public String documentation() {
-        return "documentation";
-    }
 	
 }

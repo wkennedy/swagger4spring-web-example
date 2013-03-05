@@ -26,9 +26,11 @@
 	
 	<context:component-scan base-package="com.knappsack.swagger4springweb.controllers" />
 
-    <beans:bean id="documentationController" class="com.knappsack.swagger4springweb.controller.ApiDocumentationController"
-                p:baseControllerPackage="com.knappsack.swagger4springweb.controllers.api"
-                p:baseModelPackage="com.knappsack.swagger4springweb.models"
-                p:apiVersion="v1" />
+    <!--See ExampleDocumentationController if you want to extend ApiDocumentationController for the purpose of
+        defining a different RequestMapping-->
+    <!--<beans:bean id="documentationController" class="com.knappsack.swagger4springweb.controller.ApiDocumentationController"-->
+                <!--p:baseControllerPackage="com.knappsack.swagger4springweb.controllers.api"-->
+                <!--p:baseModelPackage="com.knappsack.swagger4springweb.models"-->
+                <!--p:apiVersion="v1" />-->
 
 </beans:beans>

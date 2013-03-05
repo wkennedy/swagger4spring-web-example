@@ -12,7 +12,7 @@
 </h1>
 
 <p>
-    <a href="<c:url value="/api/docs"/>">View API documentation</a>
+    <a href="<c:url value="/documentation/"/>">View API documentation</a>
 </p>
 
 <P>  The time on the server is ${serverTime}. </P>
