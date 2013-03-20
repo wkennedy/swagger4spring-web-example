@@ -32,6 +32,24 @@ public class PersonController {
         return new Person[]{person};
     }
 
+    @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", responseClass = "Person", multiValueResponse = true)
+    @ApiError(code = 500, reason = "Process error")
+    @RequestMapping(value = "/{personId}", method = RequestMethod.GET, produces = "application/json")
+    public
+    @ResponseBody
+    Person person(@ApiParam(internalDescription = "java.lang.Long", name = "personId", required = true, value = "long") @PathVariable Long personId) {
+        Category category = new Category();
+        category.setId(1);
+        category.setName("Full Time");
+
+        Person person = new Person();
+        person.setId(1);
+        person.setName("John Does");
+        person.setCategory(category);
+
+        return person;
+    }
+
     @ApiOperation(value = "Delete a person", notes = "Remove a specific person with the given ID", httpMethod = "DELETE")
     @ApiError(code = 500, reason = "Process error")
     @RequestMapping(value = "/{personId}", method = RequestMethod.DELETE)
@@ -42,7 +60,9 @@ public class PersonController {
     @ApiOperation(value = "Create a person", notes = "Creates a new person in the system", httpMethod = "PUT")
     @ApiError(code = 500, reason = "Process error")
     @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
-    public void createPerson(@RequestBody Person person) {
-        //Create a new person
+    public @ResponseBody Person createPerson(
+            @ApiParam(internalDescription = "com.knappsack.swagger4springweb.models.Person", name = "person", required = true, value = "Person")
+            @RequestBody Person person) {
+        return person;
     }
 }
