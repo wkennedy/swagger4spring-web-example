@@ -14,7 +14,7 @@ import java.util.List;
 * the controller in your servlet context.
 */
 @Controller
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/documentation")
 public class ExampleDocumentationController extends ApiDocumentationController {
 
     public ExampleDocumentationController() {

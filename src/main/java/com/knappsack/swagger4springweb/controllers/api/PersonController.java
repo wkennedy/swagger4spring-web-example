@@ -9,6 +9,9 @@ import com.wordnik.swagger.annotations.ApiResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/api/v1/persons")
 @Api(value = "/api/v1/persons", description = "All operations for persons")
@@ -19,7 +22,7 @@ public class PersonController {
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public
     @ResponseBody
-    Person[] persons() {
+    List<Person> persons() {
         Category category = new Category();
         category.setId(1);
         category.setName("Full Time");
@@ -29,7 +32,10 @@ public class PersonController {
         person.setName("John Does");
         person.setCategory(category);
 
-        return new Person[]{person};
+        List<Person> persons = new ArrayList<Person>();
+        persons.add(person);
+
+        return persons;
     }
 
     @ApiOperation(value = "Find specific person", notes = "Get person by specified ID", httpMethod = "GET", response = Person.class, produces = "application/json")

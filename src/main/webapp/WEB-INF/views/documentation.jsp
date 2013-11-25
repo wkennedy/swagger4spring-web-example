@@ -49,7 +49,7 @@
             displaySwaggerDocuments();
 
             function displaySwaggerDocuments() {
-                var resourceUrl = '<c:url value="/api/resourceList"/>';
+                var resourceUrl = '<c:url value="/documentation/resourceList"/>';
                 window.swaggerUi = new SwaggerUi({
                     url: resourceUrl,
                     dom_id: "swagger-ui-container",
