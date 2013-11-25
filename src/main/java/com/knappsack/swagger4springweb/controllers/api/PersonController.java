@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/api/v1/persons")
-@Api(value = "Person operations", basePath = "/api/v1/persons", description = "All operations for persons")
+@Api(value = "/api/v1/persons", description = "All operations for persons")
 public class PersonController {
 
-    @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", response = Person.class)
+    @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", response = Person.class, responseContainer = "List")
     @ApiResponse(code = 500, message = "Process error")
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public
@@ -32,7 +32,7 @@ public class PersonController {
         return new Person[]{person};
     }
 
-    @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", response = Person.class, produces = "application/json")
+    @ApiOperation(value = "Find specific person", notes = "Get person by specified ID", httpMethod = "GET", response = Person.class, produces = "application/json")
     @ApiResponse(code = 500, message = "Process error")
     @RequestMapping(value = "/{personId}", method = RequestMethod.GET, produces = "application/json")
     public
@@ -64,5 +64,23 @@ public class PersonController {
             @ApiParam(name = "person", required = true, value = "Person")
             @RequestBody Person person) {
         return person;
+    }
+
+    @ApiOperation(value = "Find all persons", notes = "Get all persons currently available by category", httpMethod = "GET", response = Person.class)
+    @ApiResponse(code = 500, message = "Process error")
+    @RequestMapping(value = "/category/{categoryId}", method = RequestMethod.GET, produces = "application/json")
+    public
+    @ResponseBody
+    Person[] personsByCategory(@ApiParam(name = "categoryId", required = true, value = "long") @PathVariable Long categoryId) {
+        Category category = new Category();
+        category.setId(1);
+        category.setName("Full Time");
+
+        Person person = new Person();
+        person.setId(1);
+        person.setName("John Does");
+        person.setCategory(category);
+
+        return new Person[]{person};
     }
 }

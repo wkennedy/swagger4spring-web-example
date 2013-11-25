@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/api/v1/cars")
-@Api(value = "Car operations", basePath = "/api/v1/cars", description = "All operations for cars")
+@Api(value = "/api/v1/cars", description = "All operations for cars")
 public class CarController {
 
     @ApiOperation(value = "Find all cars", notes = "Get all cars currently available", httpMethod = "GET", response = Car.class)
-//    @ApiResponse(code = 500, message = "Process error")
+    @ApiResponse(code = 500, message = "Process error")
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public
     @ResponseBody
