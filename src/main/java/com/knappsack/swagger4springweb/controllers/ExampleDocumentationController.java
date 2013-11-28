@@ -26,7 +26,7 @@ public class ExampleDocumentationController extends ApiDocumentationController {
 
         setBaseModelPackage("com.knappsack.swagger4springweb.models");
         List<String> modelPackages = new ArrayList<String>();
-        controllerPackages.add("com.knappsack.swagger4springweb.additionalModels");
+        modelPackages.add("com.knappsack.swagger4springweb.additionalModels");
         setAdditionalModelPackages(modelPackages);
 
         setApiVersion("v1");
