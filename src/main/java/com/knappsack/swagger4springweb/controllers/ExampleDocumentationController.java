@@ -1,6 +1,7 @@
 package com.knappsack.swagger4springweb.controllers;
 
 import com.knappsack.swagger4springweb.controller.ApiDocumentationController;
+import com.wordnik.swagger.model.ApiInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,10 @@ public class ExampleDocumentationController extends ApiDocumentationController {
         setAdditionalModelPackages(modelPackages);
 
         setApiVersion("v1");
+
+        ApiInfo apiInfo = new ApiInfo("swagger4spring-web example app", "This is a basic web app for demonstrating swagger4spring-web",
+                "http://localhost:8080/terms", "http://localhost:8080/contact", "MIT", "http://opensource.org/licenses/MIT");
+        setApiInfo(apiInfo);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

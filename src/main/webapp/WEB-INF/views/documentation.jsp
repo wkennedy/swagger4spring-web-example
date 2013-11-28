@@ -8,10 +8,11 @@
     <title>swagger4spring-web-example API documentation</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
 
-    <link href='<c:url value='/resources/swagger-ui-1.1.7/css/hightlight.default.css' />' media='screen'
+    <link href='<c:url value='/resources/swagger-ui-1.1.7/css/highlight.default.css' />' media='screen'
           rel='stylesheet' type='text/css'/>
     <link href='<c:url value='/resources/swagger-ui-1.1.7/css/screen.css' />' media='screen' rel='stylesheet'
           type='text/css'/>
+    <script type="text/javascript" src="<c:url value='/resources/swagger-ui-1.1.7/lib/shred.bundle.js'/>"></script>
     <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/jquery-1.8.0.min.js' />' type='text/javascript'></script>
     <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/jquery.slideto.min.js' />'
             type='text/javascript'></script>
@@ -19,7 +20,7 @@
             type='text/javascript'></script>
     <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/jquery.ba-bbq.min.js' />'
             type='text/javascript'></script>
-    <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/handlebars-1.0.rc.1.js' />'
+    <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/handlebars-1.0.0.js' />'
             type='text/javascript'></script>
     <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/underscore-min.js' />' type='text/javascript'></script>
     <script src='<c:url value='/resources/swagger-ui-1.1.7/lib/backbone-min.js' />' type='text/javascript'></script>
@@ -48,9 +49,9 @@
             displaySwaggerDocuments();
 
             function displaySwaggerDocuments() {
-                var url = '<c:url value="/documentation/resourceList"/>';
+                var resourceUrl = '<c:url value="/documentation/resourceList"/>';
                 window.swaggerUi = new SwaggerUi({
-                    discoveryUrl: url,
+                    url: resourceUrl,
                     dom_id: "swagger-ui-container",
                     supportHeaderParams: false,
                     supportedSubmitMethods: ['get', 'post', 'put'],
