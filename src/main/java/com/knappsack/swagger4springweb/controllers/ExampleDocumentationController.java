@@ -1,6 +1,7 @@
 package com.knappsack.swagger4springweb.controllers;
 
 import com.knappsack.swagger4springweb.controller.ApiDocumentationController;
+import com.knappsack.swagger4springweb.filter.Filter;
 import com.wordnik.swagger.model.ApiInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

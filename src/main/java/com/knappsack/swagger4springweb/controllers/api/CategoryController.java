@@ -1,6 +1,10 @@
 package com.knappsack.swagger4springweb.controllers.api;
 
 import com.knappsack.swagger4springweb.models.Category;
+import com.knappsack.swagger4springweb.models.Person;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.Authorization;
+import com.wordnik.swagger.annotations.AuthorizationScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +15,8 @@ public class CategoryController {
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public
     @ResponseBody
+    @ApiOperation(value = "Create a category", notes = "Creates a new person in the system", httpMethod = "GET", consumes = "application/json", produces = "application/json", protocols = "http, https", nickname = "Get Category", response = Category.class,
+            authorizations = @Authorization(value = "oauth2", scopes = {@AuthorizationScope(scope = "category", description = "PMI authorization")}))
     Category[] categories() {
         Category category1 = new Category();
         category1.setId(1);

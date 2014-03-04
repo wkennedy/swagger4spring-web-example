@@ -60,7 +60,8 @@ public class PersonController {
         //Remove person with this ID
     }
 
-    @ApiOperation(value = "Create a person", notes = "Creates a new person in the system", httpMethod = "PUT", consumes = "application/json", produces = "application/json", protocols = "http, https", authorizations = "ADMIN", nickname = "Create Person", response = Person.class)
+    @ApiOperation(value = "Create a person", notes = "Creates a new person in the system", httpMethod = "PUT", consumes = "application/json", produces = "application/json", protocols = "http, https", nickname = "Create Person", response = Person.class,
+                    authorizations = @Authorization(value = "oauth2", scopes = {@AuthorizationScope(scope = "person", description = "PMI authorization")}))
     @ApiResponses(value = {@ApiResponse(code = 500, message = "Process error"),
                             @ApiResponse(code = 405, message = "Invalid input"),
                             @ApiResponse(code = 415, message = "Bad format")})
