@@ -1,7 +1,6 @@
 package com.knappsack.swagger4springweb.controllers.api;
 
 import com.knappsack.swagger4springweb.models.Category;
-import com.knappsack.swagger4springweb.models.Person;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.Authorization;
 import com.wordnik.swagger.annotations.AuthorizationScope;

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1/persons")
-@Api(value = "/api/v1/persons", description = "All operations for persons")
+@Api(value = "/api/v1/persons", description = "All operations for persons", position = 1)
 public class PersonController {
 
     @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", response = Person.class, responseContainer = "List")
