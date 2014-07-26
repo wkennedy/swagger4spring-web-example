@@ -7,11 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+@Api(value = "/api/v1/persons", description = "All operations for persons", position = 1)
 @Controller
 @RequestMapping("/api/v1/persons")
-@Api(value = "/api/v1/persons", description = "All operations for persons", position = 1)
 public class PersonController {
 
     @ApiOperation(value = "Find all persons", notes = "Get all persons currently available", httpMethod = "GET", response = Person.class, responseContainer = "List")
@@ -26,11 +27,18 @@ public class PersonController {
 
         Person person = new Person();
         person.setId(1);
-        person.setName("John Does");
+        person.setName("John Doe");
         person.setCategory(category);
 
-        List<Person> persons = new ArrayList<Person>();
+        Person person2 = new Person();
+        person2.setId(2);
+        person2.setName("Ansel Adams");
+        person2.setCategory(category);
+
+        List<Person> persons = new ArrayList<>();
         persons.add(person);
+        persons.add(person2);
+        Collections.sort(persons, (p1, p2) -> p1.getName().compareTo(p2.getName()));
 
         return persons;
     }

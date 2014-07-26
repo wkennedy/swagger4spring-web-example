@@ -8,9 +8,13 @@
     <title>swagger4spring-web-example API documentation</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
 
-    <link href='<c:url value='/resources/swagger-ui/css/highlight.default.css' />' media='screen'
+    <link href='<c:url value='/resources/swagger-ui/css/reset.css' />' media='screen'
           rel='stylesheet' type='text/css'/>
     <link href='<c:url value='/resources/swagger-ui/css/screen.css' />' media='screen' rel='stylesheet'
+          type='text/css'/>
+    <link href='<c:url value='/resources/swagger-ui/css/reset.css' />' media='print'
+          rel='stylesheet' type='text/css'/>
+    <link href='<c:url value='/resources/swagger-ui/css/screen.css' />' media='print' rel='stylesheet'
           type='text/css'/>
     <script type="text/javascript" src="<c:url value='/resources/swagger-ui/lib/shred.bundle.js'/>"></script>
     <script src='<c:url value='/resources/swagger-ui/lib/jquery-1.8.0.min.js' />' type='text/javascript'></script>
@@ -30,20 +34,6 @@
             type='text/javascript'></script>
     <script src='<c:url value='/resources/swagger-ui/lib/swagger-oauth.js' />' type='text/javascript'></script>
 
-<%--<style type="text/css">--%>
-        <%--.swagger-ui-wrap {--%>
-            <%--max-width: 960px;--%>
-            <%--margin-left: auto;--%>
-            <%--margin-right: auto;--%>
-        <%--}--%>
-
-        <%--#message-bar {--%>
-            <%--min-height: 30px;--%>
-            <%--text-align: center;--%>
-            <%--padding-top: 10px;--%>
-        <%--}--%>
-    <%--</style>--%>
-
     <script type="text/javascript" th:inline="javascript">
         $(document).ready(function () {
 
@@ -54,7 +44,6 @@
                 window.swaggerUi = new SwaggerUi({
                     url: resourceUrl,
                     dom_id: "swagger-ui-container",
-                    supportHeaderParams: false,
                     supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
                     onComplete: function (swaggerApi, swaggerUi) {
                         if (console) {
@@ -65,8 +54,15 @@
                         $('pre code').each(function (i, e) {
                             hljs.highlightBlock(e)
                         });
-                        if(typeof initOAuth == "function")
-                            initOAuth();
+                        if(typeof initOAuth == "function") {
+                            /*
+                             initOAuth({
+                             clientId: "your-client-id",
+                             realm: "your-realms",
+                             appName: "your-app-name"
+                             });
+                             */
+                        }
                     },
                     onFailure: function (data) {
                         if (console) {
@@ -84,23 +80,22 @@
                         log("added key " + key);
                         window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
                     }
-                })
+                });
                 window.swaggerUi.load();
             }
         });
     </script>
 </head>
 
-<body>
+<body class="swagger-section">
+<div id='header'>
+    <div class="swagger-ui-wrap">
 
-<div id="message-bar" class="swagger-ui-wrap">
-    &nbsp;
+    </div>
 </div>
 
-<div id="swagger-ui-container" class="swagger-ui-wrap">
-
-</div>
-
+<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
 
 </html>
